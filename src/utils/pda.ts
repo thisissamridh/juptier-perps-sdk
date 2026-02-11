@@ -81,6 +81,7 @@ export async function findCustodyPda(
   return pda;
 }
 
+/** Derives the on-chain position PDA for a given pool, custody, and owner. */
 export async function findPositionPda(
   poolAddress: Address,
   custodyAddress: Address,
