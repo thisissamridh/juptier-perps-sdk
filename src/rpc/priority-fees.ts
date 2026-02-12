@@ -76,6 +76,7 @@ function extractWritableAccounts(instructions: IInstruction[], feePayer: Address
   return result.slice(0, 128);
 }
 
+/** Estimates priority fees using recent prioritization fee data from the RPC. */
 export async function estimatePriorityFees(
   rpc: Rpc<SolanaRpcApi>,
   options: EstimatePriorityFeesOptions,
