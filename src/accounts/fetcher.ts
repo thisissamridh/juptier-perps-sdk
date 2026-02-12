@@ -27,6 +27,7 @@ export interface AccountFetcherConfig {
   cacheTtlMs?: number;
 }
 
+/** Fetches and decodes on-chain accounts with optional TTL caching. */
 export class AccountFetcher {
   private readonly rpc: Rpc<SolanaRpcApi>;
   private readonly commitment: 'processed' | 'confirmed' | 'finalized';
