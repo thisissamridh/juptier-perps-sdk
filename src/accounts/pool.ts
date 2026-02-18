@@ -134,6 +134,7 @@ export class PositionFetcher {
 
 // ─── BorrowFetcher ────────────────────────────────────────────────────────────
 
+/** Fetches and decodes BorrowPosition accounts from the chain. */
 export class BorrowFetcher {
   private readonly fetcher: AccountFetcher;
 
