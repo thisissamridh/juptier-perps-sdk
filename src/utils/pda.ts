@@ -160,6 +160,7 @@ export async function findTokenLedgerPda(
  * Derives the Associated Token Account address for a given owner + mint.
  * seeds = [owner, token_program, mint], program = ASSOCIATED_TOKEN_PROGRAM_ID
  */
+/** Derives the associated token account address for an owner and mint. */
 export async function findAssociatedTokenAddress(
   owner: Address,
   mint: Address,
