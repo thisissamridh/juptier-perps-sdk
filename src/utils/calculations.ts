@@ -16,6 +16,7 @@ export function calculateUnrealizedPnl(
   return -pnl;
 }
 
+/** Estimates the liquidation price for a position. */
 export function calculateLiquidationPrice(
   position: PositionAccount,
   custody: CustodyAccount
