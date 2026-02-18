@@ -28,6 +28,7 @@ export interface JupiterSwapResult {
 
 const JUPITER_QUOTE_API = 'https://quote-api.jup.ag/v6';
 
+/** Thin wrapper around the Jupiter v6 quote and swap APIs. */
 export class JupiterSwapClient {
   private readonly quoteApiUrl: string;
 
