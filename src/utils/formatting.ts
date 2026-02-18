@@ -1,5 +1,6 @@
 import { USD_DECIMALS } from '../constants.js';
 
+/** Formats a raw bigint USD value (6 decimals) to a human-readable string. */
 export function bigintToUsd(
   value: bigint,
   decimals: number = USD_DECIMALS,
