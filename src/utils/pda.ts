@@ -123,6 +123,7 @@ export async function findPositionRequestPda(
   return pda;
 }
 
+/** Derives the borrow-position PDA for a custody/owner pair. */
 export async function findBorrowPositionPda(
   poolAddress: Address,
   custodyAddress: Address,
