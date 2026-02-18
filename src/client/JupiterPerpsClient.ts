@@ -54,6 +54,7 @@ export interface JupiterPerpsClientConfig {
   cacheTtlMs?: number;
 }
 
+/** Main entry point for interacting with the Jupiter Perpetuals program. */
 export class JupiterPerpsClient {
   readonly rpc: Rpc<SolanaRpcApi>;
   readonly rpcSubscriptions?: RpcSubscriptions<SolanaRpcSubscriptionsApi>;
