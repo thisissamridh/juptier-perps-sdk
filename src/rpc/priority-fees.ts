@@ -109,6 +109,7 @@ function percentile(values: bigint[], p: number): bigint | null {
   return sorted[Math.max(0, index)];
 }
 
+/** Builds SetComputeUnitPrice and SetComputeUnitLimit instructions. */
 export function createComputeBudgetInstructions(
   computeUnits: number,
   priorityFee: bigint,
