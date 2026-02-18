@@ -104,6 +104,7 @@ export async function findPositionPda(
  * The `counter` must be provided explicitly; use `findNextPositionRequestCounter`
  * if you do not already know it.
  */
+/** Derives the position-request PDA for a pending increase or decrease. */
 export async function findPositionRequestPda(
   positionAddress: Address,
   requestChange: RequestChange,
