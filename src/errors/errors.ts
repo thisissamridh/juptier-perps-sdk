@@ -30,6 +30,7 @@ export class SimulationError extends JupiterPerpsError {
   }
 }
 
+/** Thrown when actual slippage exceeds the user-defined tolerance. */
 export class SlippageExceededError extends JupiterPerpsError {
   constructor(
     public readonly expectedPrice: bigint,
