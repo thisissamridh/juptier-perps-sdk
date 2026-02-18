@@ -58,6 +58,7 @@ export class InsufficientBalanceError extends JupiterPerpsError {
   }
 }
 
+/** Thrown when a position PDA yields no on-chain account. */
 export class PositionNotFoundError extends JupiterPerpsError {
   constructor(public readonly address: string) {
     super(`Position not found: ${address}`, 'POSITION_NOT_FOUND');
