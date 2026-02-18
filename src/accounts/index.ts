@@ -11,6 +11,7 @@ export interface AccountsConfig {
   cacheTtlMs?: number;
 }
 
+/** Provides typed access to all on-chain account data. */
 export class AccountsClient {
   readonly pool: PoolFetcher;
   readonly position: PositionFetcher;
