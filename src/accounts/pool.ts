@@ -22,6 +22,7 @@ export interface PositionInfo {
 
 // ─── PoolFetcher ──────────────────────────────────────────────────────────────
 
+/** Fetches and decodes Pool accounts from the chain. */
 export class PoolFetcher {
   private readonly fetcher: AccountFetcher;
 
