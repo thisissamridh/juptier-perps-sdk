@@ -1,6 +1,7 @@
 import type { PositionAccount, CustodyAccount, PoolAccount } from '../types/accounts.js';
 import { RATE_POWER, BPS_POWER } from '../constants.js';
 
+/** Computes unrealized PnL for a position given the current price. */
 export function calculateUnrealizedPnl(
   position: PositionAccount,
   currentPrice: bigint
