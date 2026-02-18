@@ -83,6 +83,7 @@ export class PoolFetcher {
 
 // ─── PositionFetcher ──────────────────────────────────────────────────────────
 
+/** Fetches and decodes Position accounts from the chain. */
 export class PositionFetcher {
   private readonly fetcher: AccountFetcher;
 
