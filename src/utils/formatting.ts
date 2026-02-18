@@ -18,6 +18,7 @@ export function bigintToUsd(
   return `${wholePart}.${decimalPart}`;
 }
 
+/** Parses a human-readable USD string into a raw bigint (6 decimals). */
 export function usdToBigint(
   usdValue: string | number,
   decimals: number = USD_DECIMALS
