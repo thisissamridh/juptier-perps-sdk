@@ -31,6 +31,7 @@ export type Unsubscribe = () => void;
  * JupiterPerpsClient. @solana/kit multiplexes all of these over a single
  * underlying WebSocket connection automatically — no extra connections are opened.
  */
+/** Manages real-time WebSocket subscriptions to on-chain accounts. */
 export class PerpsSubscriptions {
   private readonly rpcSubscriptions: RpcSubscriptions<SolanaRpcSubscriptionsApi>;
   private readonly commitment: Commitment;
