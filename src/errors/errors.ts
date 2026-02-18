@@ -9,6 +9,7 @@ export class JupiterPerpsError extends Error {
   }
 }
 
+/** Thrown when a required on-chain account cannot be fetched. */
 export class AccountNotFoundError extends JupiterPerpsError {
   constructor(
     public readonly address: string,
