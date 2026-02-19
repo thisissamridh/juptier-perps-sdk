@@ -70,6 +70,7 @@ export async function findPoolPda(name: string = 'JLP'): Promise<Address> {
   return pda;
 }
 
+/** Derives the custody PDA for a given pool and custody token mint. */
 export async function findCustodyPda(
   poolAddress: Address,
   custodyMint: Address,
