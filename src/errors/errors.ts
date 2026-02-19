@@ -73,6 +73,7 @@ export class InvalidPositionError extends JupiterPerpsError {
   }
 }
 
+/** Thrown when oracle price data is stale or unavailable. */
 export class OracleError extends JupiterPerpsError {
   constructor(message: string, public readonly custody?: string) {
     super(message, 'ORACLE_ERROR');
