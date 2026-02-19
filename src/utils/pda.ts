@@ -144,6 +144,7 @@ export async function findBorrowPositionPda(
   return pda;
 }
 
+/** Derives the token-ledger PDA used for swap accounting. */
 export async function findTokenLedgerPda(
   ownerAddress: Address,
   mintAddress: Address,
