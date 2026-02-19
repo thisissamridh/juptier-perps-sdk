@@ -54,6 +54,7 @@ export async function findEventAuthorityPda(): Promise<Address> {
 
 // ─── Variable PDAs ────────────────────────────────────────────────────────────
 
+/** Derives the transfer-authority PDA for the Perpetuals program. */
 export async function findTransferAuthorityPda(): Promise<Address> {
   const [pda] = await getProgramDerivedAddress({
     programAddress: JUPITER_PERPETUALS_PROGRAM_ID,
