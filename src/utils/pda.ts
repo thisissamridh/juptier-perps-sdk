@@ -62,6 +62,7 @@ export async function findTransferAuthorityPda(): Promise<Address> {
   return pda;
 }
 
+/** Derives the pool PDA for a given pool name. */
 export async function findPoolPda(name: string = 'JLP'): Promise<Address> {
   const [pda] = await getProgramDerivedAddress({
     programAddress: JUPITER_PERPETUALS_PROGRAM_ID,
