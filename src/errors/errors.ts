@@ -68,6 +68,7 @@ export class PositionNotFoundError extends JupiterPerpsError {
   }
 }
 
+/** Thrown when position parameters are logically invalid. */
 export class InvalidPositionError extends JupiterPerpsError {
   constructor(message: string) {
     super(message, 'INVALID_POSITION');
