@@ -45,6 +45,7 @@ export class SlippageExceededError extends JupiterPerpsError {
   }
 }
 
+/** Thrown when a wallet has insufficient funds for an operation. */
 export class InsufficientBalanceError extends JupiterPerpsError {
   constructor(
     public readonly required: bigint,
