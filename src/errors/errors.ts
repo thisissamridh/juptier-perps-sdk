@@ -20,6 +20,7 @@ export class AccountNotFoundError extends JupiterPerpsError {
   }
 }
 
+/** Thrown when a transaction simulation fails. */
 export class SimulationError extends JupiterPerpsError {
   constructor(
     message: string,
