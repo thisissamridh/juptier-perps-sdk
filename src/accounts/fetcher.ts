@@ -67,6 +67,7 @@ export class AccountFetcher {
   }
 
   /** Invalidate all cached entries. */
+  /** Clears all cached account data, forcing fresh fetches on next access. */
   clearCache(): void {
     this.cache.clear();
   }
