@@ -19,6 +19,7 @@ export class AccountsClient {
   /** Low-level fetcher — all higher-level fetchers share this single instance. */
   readonly fetcher: AccountFetcher;
 
+  /** @param config RPC connection and optional cache TTL settings. */
   constructor(config: AccountsConfig) {
     this.fetcher = new AccountFetcher(config);
     this.pool     = new PoolFetcher(this.fetcher);
