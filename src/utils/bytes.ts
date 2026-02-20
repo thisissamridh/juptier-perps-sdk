@@ -5,6 +5,7 @@ export function encodeBigint(value: bigint): Uint8Array {
   return new Uint8Array(buf);
 }
 
+/** Encodes a u32 as a little-endian 4-byte Uint8Array. */
 export function encodeU32(value: number): Uint8Array {
   const buf = new ArrayBuffer(4);
   new DataView(buf).setUint32(0, value, true);
