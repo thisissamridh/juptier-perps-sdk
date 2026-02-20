@@ -12,6 +12,7 @@ export function encodeU32(value: number): Uint8Array {
   return new Uint8Array(buf);
 }
 
+/** Concatenates multiple Uint8Arrays into a single buffer. */
 export function concatBytes(...arrays: Uint8Array[]): Uint8Array {
   const total = arrays.reduce((n, a) => n + a.length, 0);
   const out = new Uint8Array(total);
