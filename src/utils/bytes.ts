@@ -1,3 +1,4 @@
+/** Encodes a bigint as a little-endian 8-byte Uint8Array. */
 export function encodeBigint(value: bigint): Uint8Array {
   const buf = new ArrayBuffer(8);
   new DataView(buf).setBigUint64(0, value, true);
