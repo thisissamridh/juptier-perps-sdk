@@ -174,6 +174,7 @@ export async function createAddLiquidityInstruction(
   } as IInstruction;
 }
 
+/** Builds the removeLiquidity2 instruction for redeeming JLP tokens. */
 export async function createRemoveLiquidityInstruction(
   params: RemoveLiquidityInstructionParams,
 ): Promise<IInstruction> {
