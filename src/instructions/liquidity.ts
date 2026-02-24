@@ -125,6 +125,7 @@ export interface GetRemoveLiquidityQuoteParams {
 
 // ─── Instruction builders ────────────────────────────────────────────────────
 
+/** Builds the addLiquidity2 instruction for minting JLP tokens. */
 export async function createAddLiquidityInstruction(
   params: AddLiquidityInstructionParams,
 ): Promise<IInstruction> {
