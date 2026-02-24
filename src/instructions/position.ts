@@ -258,6 +258,7 @@ export async function createDecreasePositionMarketRequestInstruction(
  * Cancel/close a pending position request (e.g. if a keeper hasn't processed it yet).
  * The signer acts as the `keeper` account in the instruction.
  */
+/** Builds the closePositionRequest instruction to cancel a pending request. */
 export async function createClosePositionRequestInstruction(
   params: CancelPositionRequestParams,
 ): Promise<IInstruction> {
