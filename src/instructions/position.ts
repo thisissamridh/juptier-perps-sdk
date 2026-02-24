@@ -188,6 +188,7 @@ export async function createIncreasePositionMarketRequestInstruction(
   } as IInstruction;
 }
 
+/** Builds the createDecreasePositionMarketRequest instruction. */
 export async function createDecreasePositionMarketRequestInstruction(
   params: ClosePositionParams,
 ): Promise<IInstruction> {
