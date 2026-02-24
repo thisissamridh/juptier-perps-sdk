@@ -121,6 +121,7 @@ export interface CancelPositionRequestParams {
 
 // ─── Instruction builders ────────────────────────────────────────────────────
 
+/** Builds the createIncreasePositionMarketRequest instruction. */
 export async function createIncreasePositionMarketRequestInstruction(
   params: OpenPositionParams,
 ): Promise<IInstruction> {
