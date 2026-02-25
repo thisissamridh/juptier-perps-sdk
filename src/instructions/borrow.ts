@@ -106,6 +106,7 @@ export async function createBorrowInstruction(
   } as IInstruction;
 }
 
+/** Builds the repayToCustody instruction. */
 export async function createRepayInstruction(
   params: RepayInstructionParams,
 ): Promise<IInstruction> {
