@@ -58,6 +58,7 @@ export interface JupiterPerpsClientConfig {
 export class JupiterPerpsClient {
   readonly rpc: Rpc<SolanaRpcApi>;
   readonly rpcSubscriptions?: RpcSubscriptions<SolanaRpcSubscriptionsApi>;
+  /** Typed access to all on-chain account data. */
   readonly accounts: AccountsClient;
   readonly subscriptions?: PerpsSubscriptions;
   readonly commitment: Commitment;
