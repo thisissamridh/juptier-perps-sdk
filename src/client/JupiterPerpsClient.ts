@@ -58,6 +58,7 @@ export interface JupiterPerpsClientConfig {
 export class JupiterPerpsClient {
   /** Underlying Solana RPC client. */
   readonly rpc: Rpc<SolanaRpcApi>;
+  /** Optional WebSocket RPC client for real-time subscriptions. */
   readonly rpcSubscriptions?: RpcSubscriptions<SolanaRpcSubscriptionsApi>;
   /** Typed access to all on-chain account data. */
   readonly accounts: AccountsClient;
