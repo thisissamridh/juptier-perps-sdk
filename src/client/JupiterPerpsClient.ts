@@ -60,6 +60,7 @@ export class JupiterPerpsClient {
   readonly rpcSubscriptions?: RpcSubscriptions<SolanaRpcSubscriptionsApi>;
   /** Typed access to all on-chain account data. */
   readonly accounts: AccountsClient;
+  /** Real-time account subscriptions (requires rpcSubscriptions in config). */
   readonly subscriptions?: PerpsSubscriptions;
   readonly commitment: Commitment;
   readonly poolAddress: Address;
