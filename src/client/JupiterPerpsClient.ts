@@ -65,6 +65,7 @@ export class JupiterPerpsClient {
   readonly subscriptions?: PerpsSubscriptions;
   /** Default commitment level used for all RPC calls. */
   readonly commitment: Commitment;
+  /** Default JLP pool address used for all operations. */
   readonly poolAddress: Address;
 
   constructor(config: JupiterPerpsClientConfig) {
