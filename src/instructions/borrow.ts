@@ -75,6 +75,7 @@ export interface LiquidateBorrowInstructionParams {
 
 // ─── Instruction builders ────────────────────────────────────────────────────
 
+/** Builds the borrowFromCustody instruction. */
 export async function createBorrowInstruction(
   params: BorrowInstructionParams,
 ): Promise<IInstruction> {
