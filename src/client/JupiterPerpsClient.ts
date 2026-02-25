@@ -158,6 +158,7 @@ export class JupiterPerpsClient {
   };
 }
 
+/** Factory function — convenience wrapper around new JupiterPerpsClient(). */
 export function createJupiterPerpsClient(config: JupiterPerpsClientConfig): JupiterPerpsClient {
   return new JupiterPerpsClient(config);
 }
