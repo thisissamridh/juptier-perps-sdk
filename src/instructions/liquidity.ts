@@ -218,6 +218,7 @@ export async function createRemoveLiquidityInstruction(
   } as IInstruction;
 }
 
+/** Builds the swap2 instruction for token swaps through the JLP pool. */
 export async function createSwapInstruction(
   params: SwapInstructionParams,
 ): Promise<IInstruction> {
