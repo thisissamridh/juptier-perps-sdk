@@ -56,6 +56,7 @@ export interface JupiterPerpsClientConfig {
 
 /** Main entry point for interacting with the Jupiter Perpetuals program. */
 export class JupiterPerpsClient {
+  /** Underlying Solana RPC client. */
   readonly rpc: Rpc<SolanaRpcApi>;
   readonly rpcSubscriptions?: RpcSubscriptions<SolanaRpcSubscriptionsApi>;
   /** Typed access to all on-chain account data. */
