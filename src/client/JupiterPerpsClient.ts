@@ -63,6 +63,7 @@ export class JupiterPerpsClient {
   readonly accounts: AccountsClient;
   /** Real-time account subscriptions (requires rpcSubscriptions in config). */
   readonly subscriptions?: PerpsSubscriptions;
+  /** Default commitment level used for all RPC calls. */
   readonly commitment: Commitment;
   readonly poolAddress: Address;
 
