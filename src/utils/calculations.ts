@@ -39,6 +39,7 @@ export function calculateLiquidationPrice(
   return liquidationPrice;
 }
 
+/** Computes leverage ratio from size and collateral. */
 export function calculateLeverage(position: PositionAccount): bigint {
   if (position.collateralUsd === 0n) return 0n;
   return (position.sizeUsd * RATE_POWER) / position.collateralUsd;
