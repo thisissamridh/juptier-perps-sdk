@@ -58,6 +58,7 @@ export function calculateUtilization(custody: CustodyAccount): bigint {
   return (assets.locked * RATE_POWER) / assets.owned;
 }
 
+/** Computes the current funding rate for a custody. */
 export function calculateFundingRate(custody: CustodyAccount): {
   longRate: bigint;
   shortRate: bigint;
