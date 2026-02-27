@@ -51,6 +51,7 @@ export function calculateMarginRatio(position: PositionAccount): bigint {
   return (position.collateralUsd * RATE_POWER) / position.sizeUsd;
 }
 
+/** Returns the current utilization ratio of a custody pool. */
 export function calculateUtilization(custody: CustodyAccount): bigint {
   const { assets } = custody;
   if (assets.owned === 0n) return 0n;
