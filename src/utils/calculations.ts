@@ -45,6 +45,7 @@ export function calculateLeverage(position: PositionAccount): bigint {
   return (position.sizeUsd * RATE_POWER) / position.collateralUsd;
 }
 
+/** Computes the margin ratio (collateral / size) for a position. */
 export function calculateMarginRatio(position: PositionAccount): bigint {
   if (position.sizeUsd === 0n) return RATE_POWER;
   return (position.collateralUsd * RATE_POWER) / position.sizeUsd;
