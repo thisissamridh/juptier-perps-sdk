@@ -1,107 +1,74 @@
 # Claude Code Configuration
 
-This document outlines preferences and guidelines for working with Claude Code on this project.
+Community-built Jupiter Perpetuals SDK for Solana. TypeScript + @solana/kit v2.
 
-## Development Stack
+## Tech Stack
 
-- **Language:** TypeScript
-- **Runtime:** Node.js 18+
-- **Package Manager:** npm
+- **Runtime:** Node.js 18+, TypeScript
+- **Solana:** @solana/kit@2.3.0 (web3.js v2)
 - **Testing:** tsx for integration tests
+- **Package Manager:** npm
 
-## Code Style & Patterns
-
-- Use `@solana/kit` (web3.js v2) for Solana interactions
-- Prefer typed function parameters over loose `any` types
-- Add JSDoc comments to all exported functions and classes
-- Use `const` by default, avoid `let` and `var`
-- Prefer functional patterns over class-based where possible
-
-## Key Files & Directories
+## Project Structure
 
 ```
 src/
-  ├── constants.ts          # Global addresses and constants
-  ├── types/                # Type definitions (enums, interfaces)
-  ├── codecs/               # Account codec definitions
-  ├── accounts/             # Account fetchers (shared single instance)
-  ├── instructions/         # Instruction builders
-  ├── utils/                # Utilities (PDA, formatting, calculations)
-  ├── client/               # Main JupiterPerpsClient
-  ├── rpc/                  # RPC utilities (priority fees, subscriptions, tx building)
-  ├── swap/                 # Jupiter swap integration
-  └── idl/                  # IDL and discriminators
-tests/
-  └── integration-test.ts   # Integration tests (RPC-dependent)
+  constants.ts              # Global addresses, program IDs
+  types/                    # Type definitions (enums, interfaces)
+  codecs/                   # Account codec definitions
+  accounts/                 # AccountFetcher + pool/position/borrow fetchers
+  instructions/             # Instruction builders (position, liquidity, borrow)
+  utils/                    # PDAs, formatting, calculations (file:line refs below)
+  client/                   # JupiterPerpsClient main entry point
+  rpc/                      # Priority fees, subscriptions, transaction builder
+  swap/                     # Jupiter swap API wrapper
+tests/                      # Integration tests (RPC-dependent)
 examples/                   # Usage examples
 ```
 
-## Important Architecture Decisions
+## Critical Architecture
 
-1. **Single Shared AccountFetcher** — All pool/position/borrow fetchers use one fetcher instance to avoid duplication
-2. **TTL Cache** — Account data cached for 5000ms (configurable) to reduce RPC calls
-3. **Cross-Platform APIs** — Use `TextEncoder` instead of Node.js `Buffer` for seed encoding
-4. **Typed Program Addresses** — Source from `@solana-program/*` packages, keep local overrides where needed
-5. **Priority Fee Estimation** — Uses actual writable accounts from instructions for accurate fee data
+- **Single shared AccountFetcher:** See src/accounts/index.ts:14-19. All pool/position/borrow fetchers use ONE fetcher instance (no duplication).
+- **TTL Cache:** src/accounts/fetcher.ts:40-50. Caches account data for 5000ms (configurable via `cacheTtlMs`).
+- **Cross-platform APIs:** src/utils/pda.ts uses TextEncoder, NOT Node.js Buffer, for seed encoding.
+- **Typed Program Addresses:** Sourced from @solana-program/* packages (see src/constants.ts:35-36).
 
-## Common Tasks
+## Code Style
 
-### Type Check
+- Imperative commit messages ("add X", not "added X")
+- JSDoc on all exported functions/classes
+- Prefer `const`, avoid `let`/`var`
+- Use AccountRole enum (not magic numbers) — see src/instructions/position.ts:170-185
+
+## Commands
+
 ```bash
-npx tsc --noEmit
+npx tsc --noEmit          # Type check
+npx tsx tests/integration-test.ts  # Run tests
+npx tsc                   # Build to dist/
 ```
 
-### Run Tests
-```bash
-npx tsx tests/integration-test.ts
-```
+## Known Constraints
 
-### Build
-```bash
-npx tsc
-```
+- RPC-dependent tests may timeout in restricted environments (marked HTTP 403)
+- Requires @solana/kit@2.3.0 compatibility (breaking changes in v3+)
+- Associated Token Program address kept local (package exports different value)
 
-### Add New Instruction
-1. Create type in `src/types/instructions.ts`
-2. Add IDL discriminator to `src/idl/discriminators.ts`
-3. Implement builder in `src/instructions/*.ts`
-4. Export from `src/instructions/index.ts`
-5. Add to `JupiterPerpsClient.instructions` namespace
+## Important Files
 
-### Add New Account Fetcher
-1. Create codec in `src/codecs/accounts.ts`
-2. Add type in `src/types/accounts.ts`
-3. Implement fetcher method in existing fetcher class
-4. Ensure it uses shared `AccountFetcher` instance (no new RPC clients)
+- **PDA derivation:** See src/utils/pda.ts for all findXPda functions
+- **Instruction discriminators:** See src/idl/discriminators.ts
+- **Account codecs:** See src/codecs/accounts.ts (uses unsafe casts, necessary for @solana/kit)
 
-## Known Limitations
+## Before Committing
 
-- RPC calls may timeout in some environments (integration tests marked as HTTP 403)
-- `@solana-program/associated-token-account` doesn't exist as a package; ATA derivation is custom
-- Some package versions require specific `@solana/kit` compatibility (currently @2.3.0)
+1. Run `npx tsc --noEmit` — must pass
+2. Verify no `Buffer.` usage (only TextEncoder for seeds)
+3. Check AccountRole enum usage in instructions (not magic 0/1/2/3)
+4. Add JSDoc to new exported functions
 
-## Branching & Commits
+## Resources
 
-- Branch naming: `feature/` or `fix/` prefix
-- Commit messages: imperative mood, descriptive ("add X" not "added X")
-- Small, focused commits preferred over large monolithic ones
-
-## Documentation
-
-- All exported functions need JSDoc comments
-- Add inline comments for non-obvious logic
-- Keep README.md up-to-date with usage examples
-- Add examples for new features in `examples/` directory
-
-## Testing & Validation
-
-- Run `tsc --noEmit` before committing
-- Manual test with integration tests when adding RPC-dependent features
-- Verify PDA calculations against on-chain state when possible
-- Test across commitment levels (processed, confirmed, finalized)
-
-## Contact & Questions
-
-- Author: Samridh Singh (thisissamridh)
-- This is a community-built SDK, not official Jupiter Perpetuals documentation
-- For protocol questions, refer to [Jupiter docs](https://jup.ag/docs)
+- [Jupiter Docs](https://jup.ag/docs)
+- [@solana/kit Docs](https://solana-program-library.github.io/solana-program-library/token/js/)
+- Perpetuals on-chain program: `PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu`

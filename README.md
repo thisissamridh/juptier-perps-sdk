@@ -2,6 +2,21 @@
 
 A comprehensive TypeScript SDK for the Jupiter Perpetuals Protocol on Solana. Built with `@solana/kit` for modern, tree-shakable, and type-safe interactions.
 
+> **⚠️ Community-Built**: This is an independent SDK created by the community. Not officially maintained by Jupiter. For the official API documentation, see [Jupiter Perpetuals Docs](https://dev.jup.ag/docs/perps).
+
+## Why This SDK?
+
+The Jupiter Perpetuals SDK provides a **type-safe, developer-friendly interface** to the Perpetuals protocol. Instead of manually crafting instructions and managing PDAs, this SDK handles:
+
+- **Typed instruction builders** for all operations (positions, liquidity, borrows)
+- **Automatic PDA derivation** with proper seed encoding
+- **Account fetching with TTL caching** to reduce RPC load
+- **Priority fee estimation** using actual transaction accounts
+- **WebSocket subscriptions** for real-time updates
+- **Integrated Jupiter swap support** for cross-custody exchanges
+
+Perfect for traders, market makers, keepers, and developers building on Jupiter Perpetuals.
+
 ## Features
 
 - **Full Protocol Coverage**: Open/close positions, JLP liquidity, swaps, borrows
